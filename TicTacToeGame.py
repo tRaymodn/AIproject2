@@ -35,11 +35,15 @@ def main():
                 current_state = game.result(current_state, new_move)
                 game_states.append(current_state)
         game.display(current_state)
-        print("Game End")
+                if game.utility(current_state, 'X') == 1:
+            print("X wins game")
+        elif game.utility(current_state, 'X') == -1:
+            print("O wins game")
+        else:
+            print("Game tie")
         again = input("Would you like to play again? Y/N")
         if again.lower() != "y":
             play_again = False
-        else:
             print("Thank You for Playing Our Game!")
 
 if __name__ == "__main__":
